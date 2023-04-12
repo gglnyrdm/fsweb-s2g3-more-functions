@@ -16,8 +16,12 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  if (path === null || path === undefined || path === '') {
+    return "";
+  }
+  const dosyaAdi = path.split("/");
+  return dosyaAdi[dosyaAdi.length-1];
 }
 
 /*
@@ -38,9 +42,17 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
-}
+function ortalamaBul(sayiArray) {
+  if (sayiArray.length === 0) {
+    return null;
+   }
+   
+ let toplam = 0
+ for (let i=0; i<sayiArray.length; i++) {
+  toplam += sayiArray[i];
+ }
+ return toplam / sayiArray.length;
+ }
 
 /*
   GÖREV 3
@@ -62,8 +74,17 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(numArr,ortCallback) {
+if(numArr.length === 0) return null;
+
+const ortalama = ortCallback(numArr);
+let buyukSayi = [];
+for(let i=0; i<numArr.length; i++){
+  if(numArr[i] >= ortalama) {
+    buyukSayi.push(numArr[i]);
+  }
+}
+return buyukSayi;
 }
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
